@@ -1,32 +1,29 @@
 #include <iostream>
-#include <cmath>
+#include <algorithm>
 using namespace std;
 
-int main() 
+int main()
 {
-    double a, b, x, y;
+    double a1, b1, a2, b2;
+    cout << "Enter a1 b1 a2 b2: ";
+    cin >> a1 >> b1 >> a2 >> b2;
 
-    cout << "Enter a: ";
-    cin >> a;
-    cout << "Enter b: ";
-    cin >> b;
-    cout << "Enter x: ";
-    cin >> x;
+    double left = max(a1, a2);
+    double right = min(b1, b2);
 
-    if (x < 0)
+    if (left <= right) 
     {
-        y = a * pow(x, 2) + b; 
-    } 
-    else if (x <= 10) 
+        cout << " Peresekayutsa ";
+        cout << " Dlina : " << right - left << " ";
+        
+        if (a1 >= a2 && b1 <= b2) cout << " A in B ";
+
+        else if (a2 >= a1 && b2 <= b1) cout << " B in A ";
+
+        else cout << " Chastichnoe ";
+    } else 
     {
-        y = (a + b) * x;
-    } 
-    else 
-    {
-        y = x / (pow(a, 2) + pow(b, 2) + 1);
+        cout << " Ne peresekayutsa ";
     }
-
-    cout << "Answer: y = " << y << endl;
-
     return 0;
 }
