@@ -28,7 +28,7 @@ int main()
                 head = 0; 
             }
         }
-    };
+    }
     
     cout << "Task 1. Ans: \n" << arr << endl;
     return 0;
