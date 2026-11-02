@@ -1,26 +1,31 @@
 #include <iostream>
-#include <iomanip>
 using namespace std;
 
-int main()
-{
-    int matrix[3][4] = 
-    {
-        {1, 2, 3, 4},
-        {10, -5, 8, 0},
-        {-1, 2, -3, 4}
-    };
+int main() {
+    const int n = 10;
+    int A[n];
 
-    for (int i = 0; i < 3; i++)
+    cout << "Enter 10 numbers: ";
+    for (int i = 0; i < n; i++) cin >> A[i];
+
+    int minVal = A[0], maxVal = A[0];
+    int minIdx = 0, maxIdx = 0;
+
+    for (int i = 0; i < n; i++)
     {
-        int sum = 0;
-        for (int j = 0; j < 4; j++)
-        {
-            cout << setw(4) << matrix[i][j];
-            sum += matrix[i][j];
-        }
-        cout << " | Sum: " << sum << endl;
+        if (A[i] < minVal) { minVal = A[i]; minIdx = i; }
+        if (A[i] > maxVal) { maxVal = A[i]; maxIdx = i; }
     }
+
+    int countMin = 0, countMax = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (A[i] == minVal) countMin++;
+        if (A[i] == maxVal) countMax++;
+    }
+
+    cout << "Min: " << minVal << " | Idx: " << minIdx << " | Count: " << countMin << endl;
+    cout << "Max: " << maxVal << " | Idx: " << maxIdx << " | Count: " << countMax << endl;
 
     return 0;
 }
